@@ -157,7 +157,7 @@ img {
 
 /* Logo sizing — PNG has white padding so we compensate with larger display height */
 .navbar-brand .clinic-logo {
-  height: 72px;
+  height: 50px;
   width: auto;
   display: block;
   object-fit: contain;
