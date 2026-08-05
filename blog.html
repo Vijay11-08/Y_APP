@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Relief Skin & Cosmetic Clinic | Jamnagar</title>
+    <meta name="description" content="Expert skin care tips & articles by Dr. Sagar R. Bhimani — learn about laser hair removal, acne treatment, pigmentation, hair loss, and more at Relief Skin & Cosmetic Clinic, Jamnagar.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .blog-hero-card {
+            background: var(--white);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin-bottom: 0;
+        }
+        @media (max-width: 768px) {
+            .blog-hero-card { grid-template-columns: 1fr; }
+        }
+        .blog-hero-img {
+            width: 100%;
+            height: 100%;
+            min-height: 380px;
+            object-fit: cover;
+        }
+        .blog-hero-body {
+            padding: 48px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .blog-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.4s ease;
+            height: 100%;
+            border: 1px solid rgba(213,194,175,0.12);
+        }
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
+        .blog-card-image {
+            overflow: hidden;
+            height: 210px;
+        }
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.08);
+        }
+        .blog-card-body {
+            padding: 24px;
+        }
+        .blog-tag {
+            display: inline-block;
+            padding: 4px 14px;
+            background: var(--mint-green);
+            color: var(--dark-green);
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin: 12px 0;
+        }
+        .blog-meta i { color: var(--primary-green); }
+        .read-more-link {
+            color: var(--primary-green);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s ease;
+        }
+        .read-more-link:hover { gap: 12px; color: var(--dark-green); }
+        .category-pill {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--text-muted);
+            border-color: rgba(156,126,97,0.25);
+        }
+        .category-pill.active,
+        .category-pill:hover {
+            background: var(--gradient-green);
+            color: white;
+            border-color: transparent;
+        }
+        .sidebar-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 28px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(213,194,175,0.12);
+            margin-bottom: 28px;
+        }
+        .sidebar-card h5 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--mint-green);
+        }
+        .sidebar-post {
+            display: flex;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(213,194,175,0.12);
+            transition: all 0.3s ease;
+        }
+        .sidebar-post:last-child { border-bottom: none; }
+        .sidebar-post:hover { padding-left: 6px; }
+        .sidebar-post-img {
+            width: 64px;
+            height: 64px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+        .newsletter-box {
+            background: var(--gradient-green);
+            border-radius: 20px;
+            padding: 32px 28px;
+            color: white;
+            text-align: center;
+        }
+        .newsletter-box input {
+            width: 100%;
+            padding: 12px 18px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .newsletter-box button {
+            width: 100%;
+            padding: 12px;
+            background: white;
+            color: var(--primary-green);
+            font-weight: 700;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .newsletter-box button:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom sticky-top" id="main-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/Logo/Relief logo_A.png" alt="Relief Skin & Cosmetic Clinic" class="clinic-logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+                <div class="d-flex ms-lg-3 mt-3 mt-lg-0">
+                    <a href="appointment.html" class="btn btn-primary-custom">Book Appointment</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Skin Care Blog</h1>
+            <p class="mt-3">Expert tips, treatment guides & skin care advice from Dr. Sagar R. Bhimani & Diksha J. Kanani</p>
+            <div class="breadcrumb-custom">
+                <a href="index.html">Home</a>
+                <span>/</span>
+                <span>Blog</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Article -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <span class="section-label">Featured Article</span>
+                <h2>Must Read</h2>
+            </div>
+            <div class="blog-hero-card animate-on-scroll">
+                <img src="images/facial-treatment.png" alt="Laser Hair Removal Guide" class="blog-hero-img">
+                <div class="blog-hero-body">
+                    <span class="blog-tag">Laser Treatments</span>
+                    <h2 style="font-family: 'Playfair Display', serif; font-size: 1.9rem; margin: 14px 0 12px; color: var(--text-dark);">
+                        Everything You Need to Know About Laser Hair Removal
+                    </h2>
+                    <p class="text-muted">Laser hair removal is one of the most popular procedures at our clinic. In this comprehensive guide, Dr. Sagar R. Bhimani explains how Diode Laser works, who it's suitable for, what to expect during each session, and how many sessions are typically needed for permanent results.</p>
+                    <div class="blog-meta">
+                        <span><i class="fa-solid fa-user-doctor"></i> Dr. Sagar R. Bhimani</span>
+                        <span><i class="fa-solid fa-calendar"></i> August 1, 2026</span>
+                        <span><i class="fa-solid fa-clock"></i> 7 min read</span>
+                    </div>
+                    <a href="#" class="btn btn-primary-custom mt-3" style="width: fit-content;">Read Full Article &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid + Sidebar -->
+    <section class="section-padding bg-secondary-beige">
+        <div class="container">
+            <!-- Category Filter -->
+            <div class="d-flex flex-wrap gap-2 mb-5 justify-content-center">
+                <span class="category-pill active">All Articles</span>
+                <span class="category-pill">Laser Treatments</span>
+                <span class="category-pill">Acne & Scars</span>
+                <span class="category-pill">Hair Loss</span>
+                <span class="category-pill">Pigmentation</span>
+                <span class="category-pill">Skin Care Tips</span>
+                <span class="category-pill">Cosmetic Procedures</span>
+            </div>
+
+            <div class="row g-4">
+                <!-- Main Blog Cards -->
+                <div class="col-lg-8">
+                    <div class="row g-4">
+
+                        <!-- Blog 1 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/facial-treatment.png" alt="Acne scar treatment CO2 laser Jamnagar">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Acne & Scars</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">CO₂ Fractional Laser for Acne Scars — What to Expect</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">Acne scars can deeply impact confidence. Learn how CO₂ fractional laser treatment works and what results you can realistically expect after each session at our Jamnagar clinic.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Dr. Sagar</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jul 28, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 2 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/hero-banner.png" alt="PRP hair loss treatment Jamnagar">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Hair Loss</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">PRP Treatment for Hair Loss: Does It Really Work?</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">PRP (Platelet Rich Plasma) is a breakthrough treatment for hair fall and early baldness. Dr. Sagar R. Bhimani breaks down how trichoscopy helps diagnose root cause and PRP stimulates regrowth.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Dr. Sagar</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jul 22, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 3 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/skincare-products.png" alt="Melasma pigmentation treatment Jamnagar">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Pigmentation</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">How to Treat Melasma & Pigmentation with Q-Switch Laser</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">Dark patches, melasma and uneven skin tone are common in Indian skin. Diksha J. Kanani explains how Q-Switch Nd:YAG laser and Chemical Peels work together to restore even, bright skin tone.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Diksha J. Kanani</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jul 15, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 4 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/before-after-acne.png" alt="Hydra facial skin care Jamnagar">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Skin Care Tips</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">Why Every Skin Type Needs a Hydra Facial — and When</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">A Hydra Facial isn't just a luxury — it's a medical-grade deep cleanse that preps skin for treatments. Learn who benefits most, how often to get one, and what to expect.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Diksha J. Kanani</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jul 10, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 5 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/before-after-pigmentation.png" alt="Sunscreen Indian skin SPF">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Skin Care Tips</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">Sunscreen for Indian Skin: Your Complete SPF Guide</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">India's climate demands daily sun protection. Our dermatologist explains which SPF rating is ideal, how often to reapply, and why sunscreen is non-negotiable after any laser treatment.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Dr. Sagar</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jul 5, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 6 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/before-after-aging.png" alt="MNRF treatment anti-aging Jamnagar">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Cosmetic Procedures</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">MNRF Treatment: The Gold Standard for Skin Tightening</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">Microneedling Radio Frequency (MNRF) is one of the most effective treatments for wrinkle reduction and skin tightening. Understand how it works, expected downtime, and ideal candidates.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Dr. Sagar</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jun 28, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 7 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/skincare-products.png" alt="RF Cautery skin tag removal">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Cosmetic Procedures</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">RF Cautery: Safe & Fast Removal of Skin Tags, Moles & Warts</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">Skin tags and warts can appear anywhere. RF Cautery is a minimally invasive, virtually painless procedure that removes them in minutes. Know when to remove and when to leave them.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Diksha J. Kanani</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jun 20, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blog 8 -->
+                        <div class="col-md-6">
+                            <div class="blog-card animate-on-scroll">
+                                <div class="blog-card-image">
+                                    <img src="images/hero-banner.png" alt="Chemical peel acne marks Jamnagar">
+                                </div>
+                                <div class="blog-card-body">
+                                    <span class="blog-tag">Acne & Scars</span>
+                                    <h5 style="font-family: 'Playfair Display', serif; margin: 10px 0;">Chemical Peels for Acne & Post-Acne Marks: Full Guide</h5>
+                                    <p class="text-muted" style="font-size: 0.88rem;">A chemical peel is one of the fastest ways to reduce acne marks, open pores, and dull skin. Learn the different types available at our Jamnagar clinic and which is right for you.</p>
+                                    <div class="blog-meta">
+                                        <span><i class="fa-solid fa-user-doctor"></i> Diksha J. Kanani</span>
+                                        <span><i class="fa-solid fa-calendar"></i> Jun 14, 2026</span>
+                                    </div>
+                                    <a href="#" class="read-more-link">Read More <i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- end row -->
+                </div><!-- end col-lg-8 -->
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+
+                    <!-- Doctor bio sidebar -->
+                    <div class="sidebar-card">
+                        <h5><i class="fa-solid fa-user-doctor me-2"></i>Written By</h5>
+                        <div class="d-flex gap-3 align-items-center mb-3">
+                            <img src="images/Dr. Sagar R. Bhimani-photos/DSC07701.JPG" style="width:60px; height:60px; border-radius:50%; object-fit:cover; object-position:top; border:2px solid var(--light-green);" alt="Dr. Sagar">
+                            <div>
+                                <p class="mb-0 fw-semibold" style="color:var(--text-dark); font-size:0.92rem;">Dr. Sagar R. Bhimani</p>
+                                <small class="text-muted">M.B.B.S., D.D.V.L. (Gold Medalist)<br>Dermatologist, Jamnagar</small>
+                            </div>
+                        </div>
+                        <div class="d-flex gap-3 align-items-center">
+                            <img src="images/Diksha J. Kanani-potos/DSC07679.JPG" style="width:60px; height:60px; border-radius:50%; object-fit:cover; object-position:top; border:2px solid var(--light-green);" alt="Diksha Kanani">
+                            <div>
+                                <p class="mb-0 fw-semibold" style="color:var(--text-dark); font-size:0.92rem;">Diksha J. Kanani</p>
+                                <small class="text-muted">BAMS, PGDCC<br>Consulting Cosmetologist</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Popular Posts -->
+                    <div class="sidebar-card">
+                        <h5><i class="fa-solid fa-fire-flame-curved me-2"></i>Popular Posts</h5>
+                        <div class="sidebar-post">
+                            <img src="images/facial-treatment.png" class="sidebar-post-img" alt="Laser hair removal">
+                            <div>
+                                <p class="mb-1 fw-medium" style="font-size:0.88rem; color:var(--text-dark);">Laser Hair Removal: Complete Guide</p>
+                                <small class="text-muted">Aug 1, 2026</small>
+                            </div>
+                        </div>
+                        <div class="sidebar-post">
+                            <img src="images/hero-banner.png" class="sidebar-post-img" alt="PRP Hair Loss">
+                            <div>
+                                <p class="mb-1 fw-medium" style="font-size:0.88rem; color:var(--text-dark);">PRP Treatment for Hair Loss</p>
+                                <small class="text-muted">Jul 22, 2026</small>
+                            </div>
+                        </div>
+                        <div class="sidebar-post">
+                            <img src="images/before-after-aging.png" class="sidebar-post-img" alt="MNRF Skin Tightening">
+                            <div>
+                                <p class="mb-1 fw-medium" style="font-size:0.88rem; color:var(--text-dark);">MNRF for Skin Tightening</p>
+                                <small class="text-muted">Jun 28, 2026</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Categories -->
+                    <div class="sidebar-card">
+                        <h5><i class="fa-solid fa-tags me-2"></i>Categories</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="category-pill active" style="font-size: 0.78rem; padding: 5px 14px;">Laser Treatments</span>
+                            <span class="category-pill" style="font-size: 0.78rem; padding: 5px 14px;">Acne & Scars</span>
+                            <span class="category-pill" style="font-size: 0.78rem; padding: 5px 14px;">Hair Loss</span>
+                            <span class="category-pill" style="font-size: 0.78rem; padding: 5px 14px;">Pigmentation</span>
+                            <span class="category-pill" style="font-size: 0.78rem; padding: 5px 14px;">Skin Care Tips</span>
+                            <span class="category-pill" style="font-size: 0.78rem; padding: 5px 14px;">Cosmetic Procedures</span>
+                        </div>
+                    </div>
+
+                    <!-- Newsletter -->
+                    <div class="newsletter-box">
+                        <i class="fa-solid fa-envelope-open-text fs-2 mb-3" style="opacity:0.85;"></i>
+                        <h5 style="font-family:'Playfair Display',serif; margin-bottom:8px;">Get Expert Skin Tips</h5>
+                        <p style="opacity:0.8; font-size:0.88rem; margin-bottom:20px;">Subscribe for monthly skin care insights from our doctors — straight to your inbox.</p>
+                        <input type="email" placeholder="Enter your email" id="newsletter-email">
+                        <button onclick="alert('Thank you for subscribing!')">Subscribe</button>
+                    </div>
+
+                    <!-- Book CTA -->
+                    <div class="mt-4 p-4" style="background: var(--mint-green); border-radius: 20px; text-align: center;">
+                        <i class="fa-solid fa-calendar-check fs-2 text-green mb-3" style="display:block;"></i>
+                        <h6 style="color: var(--dark-green); font-family: 'Playfair Display', serif;">Have a Skin Concern?</h6>
+                        <p class="text-muted" style="font-size: 0.85rem; margin-bottom: 16px;">Book a consultation with Dr. Sagar R. Bhimani or Diksha J. Kanani today.</p>
+                        <a href="appointment.html" class="btn btn-primary-custom">Book Appointment</a>
+                    </div>
+
+                </div><!-- end sidebar -->
+            </div><!-- end row -->
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="cta-banner">
+                <h2>Ready to Transform Your Skin?</h2>
+                <p>Book a consultation with our expert doctors at Relief Skin & Cosmetic Clinic, Jamnagar.</p>
+                <a href="appointment.html" class="btn btn-cta-white">Book Your Visit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-logo-wrap">
+                        <img src="images/Logo/Relief logo_A.png" alt="Relief Skin &amp; Cosmetic Clinic">
+                    </div>
+                    <p style="color: rgba(255,255,255,0.65);">&quot;Self Care Starts with Skin Care&quot; &mdash; Advanced dermatology &amp; cosmetic clinic in Jamnagar.</p>
+                    <div class="d-flex gap-3 mt-4 social-links">
+                        <a href="#"><i class="fa-brands fa-facebook fs-5"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram fs-5"></i></a>
+                        <a href="mailto:reliefskinclinic@gmail.com"><i class="fa-solid fa-envelope fs-5"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="index.html">Home</a></li>
+                        <li class="mb-2"><a href="about.html">About Us</a></li>
+                        <li class="mb-2"><a href="services.html">Services</a></li>
+                        <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="mb-4">Resources</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="gallery.html">Gallery</a></li>
+                        <li class="mb-2"><a href="testimonials.html">Testimonials</a></li>
+                        <li class="mb-2"><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5 class="mb-4">Contact Info</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fa-solid fa-location-dot me-2" style="color: var(--sage-green);"></i>217, Central Point, 2nd Floor, Above Digjam Show Room, Summair Club Road, S.T. Road, Jamnagar</li>
+                        <li class="mb-3"><i class="fa-solid fa-phone me-2" style="color: var(--sage-green);"></i>+91 99983 98310 / 0288 &ndash; 2565038</li>
+                        <li class="mb-3"><i class="fa-solid fa-envelope me-2" style="color: var(--sage-green);"></i>reliefskinclinic@gmail.com</li>
+                        <li class="mb-3"><i class="fa-solid fa-clock me-2" style="color: var(--sage-green);"></i>Mon&ndash;Sat: 10 AM&ndash;2 PM &amp; 5 PM&ndash;8 PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="mb-0">&copy; 2026 Relief Skin &amp; Cosmetic Clinic, Jamnagar. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/chatbot.js"></script>
+    <script>
+        // Category filter pills
+        document.querySelectorAll('.category-pill').forEach(pill => {
+            pill.addEventListener('click', function() {
+                this.closest('.d-flex').querySelectorAll('.category-pill').forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
