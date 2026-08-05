@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web App Coming Soon | Relief Skin & Cosmetic Clinic</title>
+    <meta name="description"
+        content="Our new web application is coming soon. Stay tuned for a seamless skin care experience.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <style>
+        .coming-soon-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .coming-soon-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(213, 194, 175, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBubble 8s ease-in-out infinite;
+        }
+
+        .coming-soon-section::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 197, 173, 0.4) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: floatBubble 10s ease-in-out infinite reverse;
+        }
+
+        .coming-soon-content {
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            max-width: 650px;
+            width: 100%;
+        }
+
+        .coming-soon-logo {
+            max-width: 220px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+        }
+
+        .coming-soon-title {
+            font-size: 3.2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .coming-soon-title span {
+            color: var(--primary-green);
+        }
+
+        .coming-soon-text {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            line-height: 1.7;
+            padding: 0 15px;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 12px;
+            max-width: 480px;
+            margin: 0 auto 35px auto;
+        }
+
+        .notify-input {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 50px;
+            border: 1px solid rgba(156, 126, 97, 0.3);
+            background: rgba(255, 255, 255, 0.95);
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .notify-input:focus {
+            border-color: var(--primary-green);
+            box-shadow: 0 0 0 3px rgba(156, 126, 97, 0.15), inset 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .notify-btn {
+            white-space: nowrap;
+        }
+
+        .soon-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(156, 126, 97, 0.15);
+        }
+
+        .soon-nav a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 6px 12px;
+            border-radius: 20px;
+        }
+
+        .soon-nav a:hover {
+            color: var(--primary-green);
+            background: rgba(156, 126, 97, 0.08);
+        }
+
+        @media (max-width: 576px) {
+            .notify-form {
+                flex-direction: column;
+            }
+
+            .notify-btn {
+                width: 100%;
+            }
+
+            .coming-soon-content {
+                padding: 40px 20px;
+            }
+
+            .coming-soon-title {
+                font-size: 2.4rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="coming-soon-section">
+        <div class="coming-soon-content">
+            <a href="index.html">
+                <img src="IMAGES/Logo/Relief logo_A.png" alt="Relief Skin & Cosmetic Clinic" class="coming-soon-logo">
+            </a>
+
+            <div class="mb-3">
+                <span
+                    style="display: inline-block; background: var(--mint-green); color: var(--dark-green); padding: 8px 24px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(156,126,97,0.1);">
+                    ✨ Exclusive Promotion
+                </span>
+            </div>
+
+            <h1 class="coming-soon-title">Our New Web App is <br><span>Coming Soon</span></h1>
+
+            <p class="coming-soon-text">
+                We're crafting an exclusive web application to make your skin care journey even more seamless. Soon
+                you'll be able to book appointments, track treatments, and unlock <strong>special early-bird
+                    promotions</strong> right from your browser.
+            </p>
+
+            <form class="notify-form"
+                onsubmit="event.preventDefault(); alert('Thank you! We will notify you with an exclusive promotional offer when the app launches.');">
+                <input type="email" class="notify-input" placeholder="Enter email for early access & offers" required>
+                <button type="submit" class="btn btn-primary-custom notify-btn">Get Notified</button>
+            </form>
+
+        </div>
+    </section>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
